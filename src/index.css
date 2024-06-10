@@ -1,0 +1,384 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+* {
+  margin: 0 ;
+  font-family: "Quicksand";
+  font-size: large;
+  color: #333;
+
+}
+body {
+  padding-top: 100px;
+}
+.navbar {
+  top: 0;
+  align-items: center;
+  border-bottom: 3px solid #f2f2f2;
+  height: 20%;
+  background-color: #fff;
+}
+.navbar .navbar-brand {
+  margin: 0 40px;
+  color: #f1356d;
+  font-size: 50px;
+}
+
+.navbar .links {
+  margin: 0 40px;
+  padding: 20px 40px;
+}
+.navbar p {
+  margin-left: 50px;
+  color: #f1356d;
+}
+.navbar a {
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px;
+  color: #000;
+}
+.navbar a:hover {
+  color: #f1356d;
+}
+.showLoginBtn {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.hideLoginBtn {
+  display: none;
+}
+.content {
+  margin: 50px auto;
+  padding: 20px;
+  justify-content: center;
+  text-align: center;
+}
+.new-blog {
+margin: 20px auto;
+
+}
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+  
+}
+
+.blog-preview {
+  background-color: #ddd;
+  margin-bottom: 10px;
+  padding: 20px;
+  border-bottom: 1px solid #f2f2f2;
+  text-align: center;
+  
+}
+.blog-card {
+  position: relative;
+}
+.blog-date-time {
+  position: absolute;
+  top:0;
+  left:0;
+}
+.blog-fulldate {
+  margin-bottom: 0;
+  margin-left: 5px;
+}
+.blog-preview:hover {
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, 1);
+}
+.blog-preview h3 {
+  font-size: 20px;
+  color: #f1356d;
+  margin: 10px 8px;
+}
+.blog-date {
+  color: #000;
+}
+.card-img{
+  background-repeat: no-repeat;
+  height: 300px;
+  width: 100%;
+  object-fit: cover;
+  padding: 20px;
+}
+.blog-preview a {
+  text-decoration: none;
+}
+.blog-preview button {
+  margin-bottom: 30px;
+  background:#000;
+  color: #fff;
+  text-decoration: none;
+}
+
+.blog-details h2{ 
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 10px;
+}
+.blog-details div{ 
+  margin: 20px 0;
+}
+.delete{ 
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.edit{ 
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  margin: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.create {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+.create label {
+  text-align: left;
+  display: block;
+}
+.create h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 30px;
+}
+.create input, .create textarea, .create select{
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+.create button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.not-found h2{
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 30px;
+}
+.not-found p {
+  margin-bottom: 20px;
+}
+/* handle login page */
+.login {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-radius: 5%;
+
+}
+.login form {
+  width: 50%;
+  height: 70vh;
+  max-width: 400px;
+  padding: 40px;
+  background-color: #f7f7f7;    /* Example background color */
+  border: 1px solid #ccc;       /* Example border */
+  border-radius: 5px;           /* Example border radius */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Example shadow */
+
+}
+.login h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 30px;
+}
+.login input{
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+.login button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  margin: 50px;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+/* Registeration page */
+.registeration {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  border-radius: 5%;
+
+}
+.registeration form {
+  width: 50%;
+  height: 90vh;
+  max-width: 400px;
+  padding: 40px;
+  background-color: #f7f7f7;    /* Example background color */
+  border: 1px solid #ccc;       /* Example border */
+  border-radius: 5px;           /* Example border radius */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Example shadow */
+
+}
+.registeration h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 30px;
+}
+.registeration input{
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+.registeration button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  margin: 50px;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+/* update page */
+.update {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+.update label {
+  text-align: left;
+  display: block;
+}
+.update h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 30px;
+}
+.update input, .update textarea {
+  width: 100%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+.update button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.authors button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.read-more {
+  border: none;
+  font-weight: bold;
+  background: none;
+}
+/* form style */
+.vh-100{
+  background-color: #508bfc;
+}
+.card shadow-2-strong {
+  border-radius: 1rem;
+}
+.card-body p-5 text-center {
+  height: 10px;
+}
+.btn btn-lg btn-block btn-primary {
+  background-color: #dd4b39;
+}
+.btn btn-lg btn-block btn-primary mb-2 {
+  background-color: #3b5998;
+}
+/* profile page style */
+.user-profile-card{
+  width: 350 px;
+  margin: 20px;
+  border-radius: 4px;
+  padding-bottom: 20px;
+  background: white;
+}
+.gradiant{
+  background-image: linear-gradient(#91baff, #205fff);
+  height: 125px;
+  border-radius: 4px 4px 0px 0px;
+}
+.profile-down img{
+  height: 150px;
+  border-radius: 100px;
+  margin-top: -75px;
+  padding: 5px;
+  background: white;
+}
+.profile-title {
+  font-size: 36px;
+  font-weight: 600;
+}
+/* Responsive Styles */
+@media (max-width: 767px) {
+  .content {
+    margin: 30px auto;
+    padding: 15px;
+  }
+
+  .new-blog {
+    margin: 15px auto;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .blog-preview {
+    padding: 15px;
+  }
+
+  .card-img {
+    height: 150px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 992px) {
+  .blog-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
