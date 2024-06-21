@@ -1,13 +1,12 @@
-import { useEffect, useState } from "react";
-import BlogList from "./BlogList";
-import useFetch from "./useFetch";
-import Authors from "./Authors";
-import DateTime from "./Components/DateTime";
+import { useEffect } from "react";
+import BlogList from "./Components/BlogList";
+import useFetch from "./Hooks/useFetch";
 import { useAuth } from "./AuthContext";
 import fetchWithAuth from "./FetchWithAuth";
+
 const Home = () => {
     const {data, isPending, error} = useFetch('http://localhost:5000/blogs');
-    const { isAuthenticated, user, logout } = useAuth();
+    const { isAuthenticated } = useAuth();
     
     useEffect(() => {
         if (isAuthenticated) {
@@ -26,16 +25,11 @@ const Home = () => {
          );
     }
 
-    if (!user) {
-        return <div>Loading user data...</div>;
-    }
-
         return ( 
         <div className="home">
             {isPending &&<div>Loading ... </div>}
             {error && <div> {error} </div>}
             {data && <BlogList blogs={data} title = 'All Blogs' />}
-            {/* {authors && <Authors authors={authors} title = 'All Authors'/>} */}
         </div>
      );
 }

@@ -1,14 +1,14 @@
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import axios from "axios";
 
-const Authors = () => {
+const Registeration  = () => {
   const [formData, setFormData] = useState(
     {
       username: '',
       email: '',
       password: '',
-      confirm_password: ''
+      confirm_password: '', 
+      photo: null,
     }
   )
     const [error, setError] = useState('')
@@ -18,10 +18,25 @@ const Authors = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email)
     }
+    useEffect(() => {
+      console.log('formData', formData);
+    }, [formData]);
 
     const handleChange = (e) => {
-        const {name, value} = e.target;
-        setFormData({...formData, [name]: value});
+        const {name, value, files} = e.target;
+        if (name === "photo") {
+          const file = files[0];
+          setFormData((prevFormData) => ({
+      ...prevFormData,
+      photo: file,
+    }));
+          
+        } else {
+          setFormData((prevFormData) => ({
+            ...prevFormData,
+            [name]: value,
+          }));
+        }
     }
 
     const handleSubmit = (e) =>{
@@ -34,25 +49,30 @@ const Authors = () => {
       }
 
       setError('');
-      console.log(formData)
+
+      const formDataToSend = new FormData();
+      formDataToSend.append('username', formData.username);
+      formDataToSend.append('email', formData.email);
+      formDataToSend.append('password', formData.password);
+      formDataToSend.append('confirm_password', formData.confirm_password);
+      formDataToSend.append('photo', formData.photo);
+
       fetch('http://localhost:5000/users',{
       method: 'POST',
-      headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(formData)
+      body: formDataToSend
       })
-      .then( (response) =>{
+      .then( async(response) =>{
         if (response.ok) {
+          console.log('response',response)
           return response.json();
-          // alert('Great! You are one of our authors now');
-          // history.push('/')
         }
         else{
           return response.json().then((data) => {
             throw new Error(data.message || 'Error registering user');
-        //  setError('Error registering user. Please try again later.')
       })}
     })
       .then((data) => {
+        console.log('Response data:', data);
         alert('Great! You are one of our authors now');
         history.push('/');
       })
@@ -96,6 +116,24 @@ const Authors = () => {
                         onChange={handleChange}
                         required/>
                     </div>
+                    <div class="mb-3 mt-3">
+                        <label for="photo" class="form-label">Upload Photo:</label>
+                        <input type="file" class="form-control" id="file-input" accept="image/*" placeholder="upload your photo" name="photo"
+                        onChange={handleChange}
+                        required/>
+                    </div>
+
+                    {/* <div id="preview-container">
+                      {previewImage && (
+                        <img
+                          id="preview-image"
+                          src={previewImage}
+                          alt="Preview"
+                          style={{ maxWidth: "50px", display: "inline-block" }}
+                        />
+                      )}
+                    </div> */}
+                    
                     {error && <p style={{color: 'red'}}>{error}</p>}
                     <button type="submit" class="btn ">Submit</button>
                 
@@ -105,4 +143,4 @@ const Authors = () => {
      );
 }
  
-export default Authors;
+export default Registeration;

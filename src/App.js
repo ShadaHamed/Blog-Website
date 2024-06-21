@@ -1,34 +1,19 @@
-import Navbar from "./Navbar";
+import Navbar from "./Components/Navbar";
 import Home from "./Home";
-import Create from "./Create";
-import Update from "./Update";
-import Authors from "./Authors";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
-import BlogDetails from "./BlogDetails";
-import NotFound from "./NotFound";
-import { useState } from "react";
+import Create from "./Components/Create";
+import Update from "./Components/Update";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import BlogDetails from "./Components/BlogDetails";
+import NotFound from "./Components/NotFound";
 import Dashboard from "./Components/Dashboard";
 import Login from "./Components/Login"
 import Registeration from "./Components/Registeration";
 import About from "./Components/About";
 import Contact from "./Components/Contact";
 import Profile from "./Components/Profile";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { AuthProvider } from "./AuthContext";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [user, setUser] = useState(null)
-  const [token, setToken] = useState();
-  const history = useHistory();
-
-   // if(!token) {
-  //   return (
-  //     <Router>
-  //       <Login />
-  //     </Router>
-    
-  // )}
 
   return (
     <AuthProvider>
@@ -52,10 +37,7 @@ function App() {
             <Route path='/create'>
               <Create />
             </Route>
-            <Route path='/authors'>
-              <Authors />
-            </Route>
-            <Route path='/blogs/:id'>
+            <Route path='/blogs/blog/:id'>
               <BlogDetails />
             </Route>
             <Route path='/update/:id'>
@@ -67,8 +49,11 @@ function App() {
             <Route path='/registeration'>
               <Registeration />
             </Route>
-            <Route path='/dashboard'>
+            <Route path='/blogs/author/:author'>
               <Dashboard />
+            </Route>
+            <Route path='/users/profile/:username'>
+              <Profile />
             </Route>
             <Route path='*'>
               <NotFound />

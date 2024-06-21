@@ -15,7 +15,7 @@ const getData = () => {
         
         const parsedData = JSON.parse(data);
         console.log('Data parsed successfully:', parsedData);
-        
+    
         return parsedData;
     } catch (err) {
         console.error('Error reading or parsing data.json:', err);

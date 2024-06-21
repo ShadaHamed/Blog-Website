@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
-import { useAuth } from "./AuthContext";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { useAuth } from "../AuthContext";
+import { Container, Col, Card } from "react-bootstrap";
 
 const BlogList = ({blogs, title}) => {
     const [showFullBlog, setShowFullBlog] = useState(false)
-    const { user, logout} = useAuth();
+    const { user} = useAuth();
     const handleShowBlog = () => {
 
         setShowFullBlog(!showFullBlog)
@@ -27,7 +27,7 @@ const BlogList = ({blogs, title}) => {
                 {blogs.map(blog => (
                 <Col xs={6} md={12} lg={12} className="blog-preview" key={blog.id} >
                     <Card className="blog-card">
-                        {blog.image? <Card.Img variant="top" src={blog.image} className="card-img rounded "/>: <Card.Img variant="top" className="card-img rounded " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7Gfel-AapoSZTh5Lnp4WWv4lypUWN7wbqZg&s"/>}
+                        {blog.image? <Card.Img variant="top" src={require(`../${blog.image}`)} className="card-img rounded "/>: <Card.Img variant="top" className="card-img rounded " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7Gfel-AapoSZTh5Lnp4WWv4lypUWN7wbqZg&s"/>}
                         <Card.Body className="card-body">
                             <div className="blog-date-time">
                             <p className="blog-fulldate">{blog.fullDate}</p>
@@ -35,7 +35,7 @@ const BlogList = ({blogs, title}) => {
                             </div>
                             <Card.Title> {blog.title} </Card.Title>
                             <Card.Text>{showFullBlog?  blog.body: blog.body.slice(0,100)}</Card.Text>
-                            <Link to={`/blogs/${blog.id}`}>
+                            <Link to={`/blogs/blog/${blog.id}`}>
                                 <button className=" btn read-more" onClick={handleShowBlog}> read {showFullBlog? 'less': 'more'}</button>
                             </Link>
                             <p>Written by {blog.author}</p>

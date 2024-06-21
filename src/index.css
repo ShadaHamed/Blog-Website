@@ -83,10 +83,21 @@ margin: 20px auto;
   position: absolute;
   top:0;
   left:0;
+  font-weight: bold;
+  margin: 5px 10px;
+  padding: 5px;
+  border-radius: 4px;
+  /* background-color:rgba(141, 139, 139, 0.5); */
+  color: #000;
+  opacity: 0.5;
+  
 }
 .blog-fulldate {
   margin-bottom: 0;
   margin-left: 5px;
+}
+.blog-time {
+  margin-bottom: 0;
 }
 .blog-preview:hover {
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 1);
@@ -96,15 +107,15 @@ margin: 20px auto;
   color: #f1356d;
   margin: 10px 8px;
 }
-.blog-date {
-  color: #000;
-}
+
 .card-img{
   background-repeat: no-repeat;
   height: 300px;
-  width: 100%;
+  width: 300px;
   object-fit: cover;
   padding: 20px;
+  border-bottom: 1px solid #d6d5d5;
+  border-width: 2px;
 }
 .blog-preview a {
   text-decoration: none;
@@ -123,6 +134,12 @@ margin: 20px auto;
 }
 .blog-details div{ 
   margin: 20px 0;
+}
+.blog-details .blog-body {
+  margin: 30px 100px;
+  padding: 10px 10px;
+  justify-content: center;
+
 }
 .delete{ 
   background: #f1356d;
@@ -172,6 +189,7 @@ margin: 20px auto;
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+  display: block;
 }
 .not-found h2{
   font-size: 20px;
@@ -232,7 +250,7 @@ margin: 20px auto;
 }
 .registeration form {
   width: 50%;
-  height: 90vh;
+  height: 100vh;
   max-width: 400px;
   padding: 40px;
   background-color: #f7f7f7;    /* Example background color */
@@ -293,6 +311,9 @@ margin: 20px auto;
   padding: 8px;
   border-radius: 8px;
   cursor: pointer;
+  display: block;
+  text-align: center;
+  margin-top: 10px;
 }
 .authors button {
   background: #f1356d;
@@ -332,7 +353,7 @@ margin: 20px auto;
   background: white;
 }
 .gradiant{
-  background-image: linear-gradient(#91baff, #205fff);
+  background-image: linear-gradient(#f1c7b9, #ee7d6e);
   height: 125px;
   border-radius: 4px 4px 0px 0px;
 }
@@ -346,6 +367,12 @@ margin: 20px auto;
 .profile-title {
   font-size: 36px;
   font-weight: 600;
+}
+.profile-button {
+  background-color: transparent;
+  border:none;
+  color: #0000FF;
+  border-bottom: 1px solid #0000FF;
 }
 /* Responsive Styles */
 @media (max-width: 767px) {
@@ -370,6 +397,18 @@ margin: 20px auto;
     height: 150px;
   }
 }
+.dashboard .table td:first-child {
+  text-align: left;
+  margin-left: 50px;
+}
+.dashboard thead {
+  font-weight: bold;
+}
+.dashboard .blog-title {
+  color: #000;
+  text-decoration: none;
+}
+
 
 @media (min-width: 768px) and (max-width: 991px) {
   .blog-grid {

@@ -1,4 +1,3 @@
-import React from 'react'
 
 const useDateTime = () => {
     const date = new Date();
@@ -7,10 +6,10 @@ const useDateTime = () => {
     const day = date.getDate();
     const fullDate = month + '/'+ day + '/' + year;
 
-    const Time = date.getHours() 
+    const time = date.getHours() 
         + ':' + date.getMinutes() 
         + ":" + date.getSeconds()
-  return ( {fullDate, Time})
+  return ( {fullDate, time})
 }
 
 export default useDateTime

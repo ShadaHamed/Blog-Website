@@ -1,13 +1,10 @@
-import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import useFetch from "../useFetch";
 import { useAuth } from "../AuthContext";
 
 
 const Login = () => {
-    const {data} = useFetch('http://localhost:5000/users');
     const [formData, setFormData] = useState(
         {
           email: '',
@@ -16,10 +13,8 @@ const Login = () => {
       )
       
     const [error, setError] = useState('');
-    const [token, setToken] = useState('');
-    const [user, setUser] = useState(null);
     const history = useHistory();
-    const {isAuthenticated, login} = useAuth();
+    const {login} = useAuth();
 
     
     const handleChange = (e) => {

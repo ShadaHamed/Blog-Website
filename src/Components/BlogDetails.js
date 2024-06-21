@@ -1,6 +1,6 @@
 import { useHistory, useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { Link } from "react-router-dom";
-import BlogRepository from "./BlogRepository";
+import BlogRepository from "../BlogRepository";
 import { useState, useEffect } from "react";
 
 const BlogDetails = () => {
@@ -44,9 +44,10 @@ const BlogDetails = () => {
             {error && <div>{error}</div>}
             {blog && (
                 <article>
-                    <h2>{blog.title}</h2>
+                    <div> <img src={require(`../${blog.image}`)} width='500px' hight='600'/></div>
+                    <h1>{blog.title}</h1>
                     <p>Written by {blog.author}</p>
-                    <div>{blog.body}</div>
+                    <div className="blog-body">{blog.body}</div>
                     <Link className="edit" to={`/update/${id}`}>Edit</Link>
                     <button className="delete" onClick={() => handleDelete(id)}>Delete</button>
                 </article>

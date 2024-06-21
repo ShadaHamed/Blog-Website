@@ -7,11 +7,30 @@ const BlogRepository = {
     },
     getBlogById: async (id) => {
         try {
-            const response = await fetch(`${API_URL}/blogs/${id}`);
+            const response = await fetch(`${API_URL}/blogs/blog/${id}`);
+            console.log(response)
             if (!response.ok) {
                 throw new Error('Failed to fetch blog');
             }
             const blogData = await response.json();
+            console.log(blogData)
+            return blogData;
+        } catch (error) {
+            console.error(error);
+            return null;
+        }
+    },
+    getBlogByAuthor: async (author) => {
+        try {
+            const response = await fetch(`${API_URL}/blogs/author/${author}`);
+            console.log('response from BlogRepository', response);
+
+            if (!response.ok) {
+                throw new Error('Failed to fetch blog');
+            }
+            const blogData = await response.json();
+            console.log('blogData from repository', blogData);
+
             return blogData;
         } catch (error) {
             console.error(error);
@@ -35,11 +54,12 @@ const BlogRepository = {
         }
     },
     updateBlog: async (id, updatedData) => {
+        console.log('updatedData from update', updatedData)
+        
         try {
             const response = await fetch(`${API_URL}/blogs/${id}`, {
                 method: 'PUT',
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(updatedData)
+                body: updatedData
             });
             if (!response.ok) {
                 console.error('Failed to update blog:', response.status, response.statusText);

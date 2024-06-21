@@ -1,21 +1,23 @@
 import { Link, useHistory } from "react-router-dom";
-import { useState } from "react";
-import { useAuth } from "./AuthContext";
-import { Container } from "react-bootstrap";
+import { useAuth } from "../AuthContext";
+import Dropdown from 'react-bootstrap/Dropdown';
 
 const Navbar = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const {isAuthenticated, user,token,login,logout} = useAuth();
+  const {user, token, login, logout} = useAuth();
   const history = useHistory();
-  console.log('user from navbar', user)
   const handleLogin = () => {
-    // login(user, token)
+    login(user, token)
     history.push('/login');
+    console.log('user from navbar after login', user)
   };
 
   const handleLogout = () => {
     logout();
     history.push('/');
+  };
+
+  const handleProfileClick = () => {
+    history.push(`/users/profile/${user.username}`);
   };
 
   return (
@@ -32,7 +34,16 @@ const Navbar = () => {
             <button className="showLoginBtn" onClick={handleLogin}>Login</button>
           )}
           {user? (
-            <p> Welcome, {user.username}</p>
+            
+            <Dropdown>
+              <Dropdown.Toggle variant="dark" id="dropdown-basic">
+                {`Welcom, ${user.username}`}
+              </Dropdown.Toggle>
+
+              <Dropdown.Menu>
+                <Dropdown.Item onClick={handleProfileClick}>See your profile</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
           ): ('')}
         </div>
         </div>
