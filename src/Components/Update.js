@@ -96,6 +96,7 @@ const Update = () => {
                 <textarea
                     name="body"
                     required
+                    rows= '10'
                     value={formData.body}
                     onChange={handleInputChange}
                 />

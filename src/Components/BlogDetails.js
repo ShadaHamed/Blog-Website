@@ -44,7 +44,7 @@ const BlogDetails = () => {
             {error && <div>{error}</div>}
             {blog && (
                 <article>
-                    <div> <img src={require(`../${blog.image}`)} width='500px' hight='600'/></div>
+                    <div> <img src={require(`../${blog.image}`)} width='500px' hight='600' alt='blog-image'/></div>
                     <h1>{blog.title}</h1>
                     <p>Written by {blog.author}</p>
                     <div className="blog-body">{blog.body}</div>

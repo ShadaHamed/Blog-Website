@@ -5,12 +5,12 @@ import { useAuth } from "./AuthContext";
 import fetchWithAuth from "./FetchWithAuth";
 
 const Home = () => {
-    const {data, isPending, error} = useFetch('http://localhost:5000/blogs');
+    const {data, isPending, error} = useFetch('https://blog-website-1-4i5l.onrender.com/blogs');
     const { isAuthenticated } = useAuth();
     
     useEffect(() => {
         if (isAuthenticated) {
-            fetchWithAuth('http://localhost:5000/blogs');
+            fetchWithAuth('https://blog-website-1-4i5l.onrender.com/blogs');
         }
     }, [isAuthenticated]);
 

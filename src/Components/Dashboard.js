@@ -26,7 +26,7 @@ const Dashboard = ({username}) => {
     }, [username])
 
     if (blogs.length === 0) {
-        return <div>No blogs found for {username}.</div>;
+        return <div className='dashboard-notfound'>No blogs found for {username}.</div>;
       }
 
       const handleDelete = async (id) => {
@@ -41,7 +41,7 @@ const Dashboard = ({username}) => {
     return ( 
         <div className="dashboard">
            <table className="table table-hover">
-           <thead>
+           <thead className='table-header'>
                 <tr>
                     <td>Title</td>
                     <td>Date</td>
@@ -49,7 +49,7 @@ const Dashboard = ({username}) => {
                     <td></td>
                 </tr>
            </thead>
-           <tbody>
+           <tbody className='table-body'>
             {blogs.sort((a, b) => new Date(b.fullDate) - new Date(a.fullDate)).map ( (blog) => (
                     
                     <tr key={blog.id}>
@@ -59,8 +59,8 @@ const Dashboard = ({username}) => {
                             </Link>
                         </td>
                         <td>{blog.fullDate}</td>
-                        <td><Link to={`/update/${blog.id}`}>edit</Link></td>
-                        <td><Link onClick={ () => {handleDelete(blog.id)}}>delete</Link></td>
+                        <td className='blog-action'><Link to={`/update/${blog.id}`}>edit</Link></td>
+                        <td className='blog-action'><Link onClick={ () => {handleDelete(blog.id)}}>delete</Link></td>
                     </tr>
     
                     )

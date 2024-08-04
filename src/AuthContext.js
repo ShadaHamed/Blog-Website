@@ -7,20 +7,14 @@ export const AuthProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [user, setUser] = useState(null);
     const [token, setToken] = useState(null);
-    console.log('isAuthenticated from state', isAuthenticated)
     
     useEffect(() => {
         AuthService.initialize();
-        // setUser(AuthService.getUser());
-        // setToken(AuthService.getToken());
-        // setIsAuthenticated(AuthService.getAuthStatus());
-        // console.log('isAuthenticated from useEffect', isAuthenticated)
     }, []);
 
     useEffect(() => {
         const authStatus = AuthService.getAuthStatus();
         setIsAuthenticated(authStatus);
-        console.log('isAuthenticated from useEffect2', isAuthenticated)
     }, [AuthService.getAuthStatus()]);
 
     const login = (user, token) => {
@@ -28,7 +22,6 @@ export const AuthProvider = ({ children }) => {
         setUser(AuthService.getUser());
         setToken(AuthService.getToken())
         setIsAuthenticated(true);
-        console.log('user', user, 'token', token, isAuthenticated)
     };
 
     const logout = () => {

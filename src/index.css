@@ -10,6 +10,7 @@
 body {
   padding-top: 100px;
 }
+/* navbar style */
 .navbar {
   top: 0;
   align-items: center;
@@ -22,15 +23,15 @@ body {
   color: #f1356d;
   font-size: 50px;
 }
-
-.navbar .links {
+.navbar .links ul{
+  display: flex !important;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  list-style-type: none !important;
+  gap: 40px;
   margin: 0 40px;
-  padding: 20px 40px;
 }
-.navbar p {
-  margin-left: 50px;
-  color: #f1356d;
-}
+
 .navbar a {
   margin-left: 16px;
   text-decoration: none;
@@ -44,13 +45,20 @@ body {
   background: #f1356d;
   color: #fff;
   border: 0;
-  padding: 8px;
   border-radius: 8px;
   cursor: pointer;
 }
 .hideLoginBtn {
   display: none;
 }
+.nav-mob-open{
+  display: none;
+}
+.nav-mob-close{
+  display: none;
+}
+
+/* content style  */
 .content {
   margin: 50px auto;
   padding: 20px;
@@ -63,7 +71,7 @@ margin: 20px auto;
 }
 .blog-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
   
 }
@@ -139,6 +147,8 @@ margin: 20px auto;
   margin: 30px 100px;
   padding: 10px 10px;
   justify-content: center;
+  text-align: justify; 
+  text-justify: inter-word;
 
 }
 .delete{ 
@@ -201,6 +211,7 @@ margin: 20px auto;
 }
 /* handle login page */
 .login {
+  margin: 50px 50px;
   display: flex;
   justify-content: center;
   text-align: center;
@@ -250,7 +261,7 @@ margin: 20px auto;
 }
 .registeration form {
   width: 50%;
-  height: 100vh;
+  min-height: 100vh;
   max-width: 400px;
   padding: 40px;
   background-color: #f7f7f7;    /* Example background color */
@@ -375,7 +386,68 @@ margin: 20px auto;
   border-bottom: 1px solid #0000FF;
 }
 /* Responsive Styles */
-@media (max-width: 767px) {
+@media (max-width: 768px) {
+  .navbar{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+  .navbar .links ul{
+    margin: 0;
+  }
+  .nav-mob-open{
+    display: block;
+    position: fixed;
+    right: 30px;
+  }
+  .nav-mob-close{
+    display: block;
+    position: relative;
+    top: 30px;
+    left: 100px;
+    width: 30px;
+  }
+
+  .navbar-menu{
+    position: fixed;
+    flex-direction: column;
+    align-items: start;
+    top: 0;
+    background: #f1356d;
+    color: white;
+    width: 350px;
+    height: 70%;
+    z-index: 2;
+    transition: right 0.5s;
+    right: -350px;
+  }
+  .navbar-menu li{
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .navbar-menu button{
+    margin: 10px 0px 0px 16px;
+  }
+  .nav-username {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .nav-username button{ 
+    margin: 0 20px;
+    height: 50%;
+    width: 100%;
+    display: block;
+    font-size: 16px;
+  }
+  .links ul li a{ 
+    color: #fff;
+  }
+  .navbar .links ul{
+    justify-content: start;
+    gap:2px;
+  }
+  /* content style */
   .content {
     margin: 30px auto;
     padding: 15px;
@@ -386,18 +458,47 @@ margin: 20px auto;
   }
 
   .blog-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .blog-preview {
-    padding: 15px;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10;
   }
 
   .card-img {
-    height: 150px;
+    height: 100%;
+    width: 100%;
+  }
+  .login form{
+    width: 100%;
+    height: 100%;
+  }
+  .blog-body{
+    align-items: start;
+  }
+  .update h2{
+    font-size: 20px;
+  }
+  .update label{
+    font-size: 16px;
+  }
+  .update input, .update textarea{
+    font-size: 16px;
+  }
+  .update button{
+    font-size: 16px;
+  }
+  .create h2{
+    font-size: 20px;
+  }
+  .create label{
+    font-size: 16px;
+  }
+  .create input, .update textarea{
+    font-size: 16px;
+  }
+  .create button{
+    font-size: 16px;
   }
 }
-.dashboard .table td:first-child {
+/* .dashboard .table td:first-child {
   text-align: left;
   margin-left: 50px;
 }
@@ -407,17 +508,162 @@ margin: 20px auto;
 .dashboard .blog-title {
   color: #000;
   text-decoration: none;
-}
-
-
-@media (min-width: 768px) and (max-width: 991px) {
+  }
+ 
   .blog-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-}
+  } */
 
-@media (min-width: 992px) {
+
+@media (max-width: 425px) {
+  .nav{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navbar .navbar-brand{
+    font-size: 20px;
+  }
+  .navbar img{
+    width: 30px;
+
+  }
+  .nav-username {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .navbar-menu{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: 50%;
+  }
+  .navbar-menu a{
+    font-size: 12px;
+  }
+  .navbar-menu button{
+    font-size: 12px;
+  }
+  .nav-username button{ 
+    margin: 0 20px;
+    height: 50%;
+    width: 100%;
+    display: block;
+    font-size: 12px;
+  }
+  .dropdown-item a{
+    font-size: 12px;
+  }
   .blog-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .login{
+    margin: 50px 0;
+    font-size: 12px;
+  }
+  .login form{
+    padding: 6px 5px;
+  }
+  .login h2{
+    font-size: 18px;
+  }
+  .login form input{
+    width: 100%;
+    font-size: 12px;
+  }
+  .login button{
+    text-align: center;
+  }
+  .registeration{
+    margin: 50px 0;
+    font-size: 12px;
+  }
+  .registeration form{
+    padding: 6px 5px;
+  }
+  .registeration h2{
+    font-size: 18px;
+  }
+  .registeration form input{
+    width: 100%;
+    font-size: 12px;
+  }
+  .registeration button{
+    text-align: center;
+  }
+  .blog-details img{
+    height: 100%;
+    width: 100%;
+  }
+  .blog-details .blog-body {
+    margin: 30px 10px;
+    padding: 10px 10px;
+    font-size: 12px;
+    justify-content: start;
+    text-align: justify; 
+    text-justify: inter-word;
+  
+  }
+  .blog-body h1{
+    font-size: 18px;
+  }
+  .edit, .delete{
+    width: 50px;
+    font-size: 10px;
+    justify-content: start;
+  }
+  .update h2{
+    font-size: 18px;
+  }
+  .update label{
+    font-size: 14px;
+  }
+  .update input, .update textarea{
+    font-size: 14px;
+  }
+  .update button{
+    font-size: 14px;
+  }
+  .craete h2{
+    font-size: 18px;
+  }
+  .craete label{
+    font-size: 14px;
+  }
+  .craete input, .update textarea{
+    font-size: 14px;
+  }
+  .craete button{
+    font-size: 14px;
+  }
+  .profile-title{
+    font-size: 18px;
+  }
+  .profile-description{
+    font-size: 14px;
+  }
+  .profile-link a{
+    font-size: 14px;
+  }
+  .profile-button{
+    font-size: 14px;
+  }
+  .dashboard-notfound{
+    font-size: 14px;
+  }
+  .dashboard .table-header tr td{
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .dashboard a{
+    font-size: 14px;
+  }
+  .dashboard .table-body tr td{
+    font-size: 14px;
+  }
+  .blog-action{
+    display: inline-block;
   }
 }

@@ -1,7 +1,5 @@
-import axios from "axios";
 import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
-import useFetch from "../Hooks/useFetch";
 import useDateTime from "../Hooks/useDateTime"
 import { useAuth } from "../AuthContext";
 
@@ -52,7 +50,7 @@ const Create = () => {
         formDataToSend.append('image', formData.image);
       
         //post data to server
-        fetch('http://localhost:5000/blogs', {
+        fetch('https://blog-website-1-4i5l.onrender.com/blogs', {
             method: 'POST',
             body: formDataToSend
 

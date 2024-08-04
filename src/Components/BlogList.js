@@ -4,6 +4,8 @@ import { useAuth } from "../AuthContext";
 import { Container, Col, Card } from "react-bootstrap";
 
 const BlogList = ({blogs, title}) => {
+    console.log('title', title);
+    console.log('blogs', blogs);
     const [showFullBlog, setShowFullBlog] = useState(false)
     const { user} = useAuth();
     const handleShowBlog = () => {
@@ -25,7 +27,7 @@ const BlogList = ({blogs, title}) => {
             }}>Create your own Blog</Link>)}
             <row className="blog-grid justify-content-center">
                 {blogs.map(blog => (
-                <Col xs={6} md={12} lg={12} className="blog-preview" key={blog.id} >
+                <Col className="blog-preview" key={blog.id} >
                     <Card className="blog-card">
                         {blog.image? <Card.Img variant="top" src={require(`../${blog.image}`)} className="card-img rounded "/>: <Card.Img variant="top" className="card-img rounded " src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7Gfel-AapoSZTh5Lnp4WWv4lypUWN7wbqZg&s"/>}
                         <Card.Body className="card-body">

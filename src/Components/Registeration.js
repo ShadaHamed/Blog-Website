@@ -57,7 +57,7 @@ const Registeration  = () => {
       formDataToSend.append('confirm_password', formData.confirm_password);
       formDataToSend.append('photo', formData.photo);
 
-      fetch('http://localhost:5000/users',{
+      fetch('https://blog-website-1-4i5l.onrender.com/users',{
       method: 'POST',
       body: formDataToSend
       })

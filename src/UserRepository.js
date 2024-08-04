@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:5000';
+const API_URL = 'https://blog-website-1-4i5l.onrender.com';
 
 const UserRepository = {
     getUsers: async () => {
